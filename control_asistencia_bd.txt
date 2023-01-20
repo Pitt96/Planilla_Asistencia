@@ -1,0 +1,29 @@
+//la base de datos se llama Asistencia
+
+create table empleado(
+id varchar(11) primary key,
+nombre varchar(30) not null,
+);
+
+create table asistencia(
+id varchar(11) primary key,
+fecha varchar(10),
+hora varchar(10),
+observacion varchar(60),
+idEmpleado varchar(11),
+foreign key(idEmpleado)  references empleado(id)
+);
+
+create table boleta_pago(
+id varchar(11) primary key,
+sueldoBruto double,
+desOb double,
+desAfp double,
+bonificacion double,
+sueldoNeto double,
+idEmp varchar(11),
+foreign key(idEmp) references empleado(id)
+);
+
+
+insert into asistencia values('A0001','31-10-2022','08:05','Llego 5 minutos tarde','1111');
